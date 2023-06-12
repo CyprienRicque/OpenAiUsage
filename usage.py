@@ -4,11 +4,9 @@ import os
 
 import pandas as pd
 import requests
-from dotenv import load_dotenv
 import altair as alt
 
 import streamlit as st
-from matplotlib import pyplot as plt
 
 # large streamlit layout
 st.set_page_config(
