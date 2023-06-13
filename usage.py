@@ -76,10 +76,10 @@ total.metric("This month usage cost ($)", this_month_usage_d)
 st.divider()
 
 chart_daily = alt.Chart(df_this_month).mark_line().encode(
-    x='datetime:T',
+    x=alt.X('datetime:T', timeUnit='monthdate', title='date'),
     y=alt.Y('cost:Q', axis=alt.Axis(format='$f')),
     color='name:N',
-    tooltip=['date:T', 'cost:Q', 'name:N']
+    tooltip=['datetime:T', 'cost:Q', 'name:N']
 ).properties(
     width=1200,
     height=400,
@@ -91,10 +91,10 @@ st.altair_chart(chart_daily, use_container_width=True)
 # Plotting monthly usage
 
 chart_monthly = alt.Chart(df_total).mark_line().encode(
-    x='datetime:T',
+    x=alt.X('datetime:T', timeUnit='yearmonthdate', title='date'),
     y=alt.Y('cost:Q', axis=alt.Axis(format='$f')),
     color='name:N',
-    tooltip=['month_year:T', 'cost:Q', 'name:N']
+    tooltip=['datetime:T', 'cost:Q', 'name:N']
 ).properties(
     width=800,
     height=400,
